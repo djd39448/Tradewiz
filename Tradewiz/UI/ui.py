@@ -17,3 +17,11 @@ class TradeWizUI:
 if __name__ == '__main__':
     ui = TradeWizUI()
     print(ui.start_buttons())
+
+    def help_buttons(self):
+        keyboard = [[InlineKeyboardButton('Help', callback_data='help')]]
+        return InlineKeyboardMarkup(keyboard)
+
+    def handle_help(self, update, context):
+        # Provide help information
+        context.bot.send_message(chat_id=update.effective_chat.id, text='This is the help section.')
